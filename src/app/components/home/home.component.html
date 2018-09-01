@@ -1,3 +1,14 @@
-<p>
-  home works!
-</p>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1>Pelis</h1>
+        <p class="lead">
+            My app for movies search.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <app-gallery title="Billboard" [movies]="billboard | slice:0:6"></app-gallery>
+    <app-gallery title="Populars" [movies]="populars | slice:0:6"></app-gallery>
+    <app-gallery title="Kids Movies" [movies]="kids | slice:0:6"></app-gallery>
+</div>
