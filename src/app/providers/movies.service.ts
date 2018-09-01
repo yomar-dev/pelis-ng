@@ -19,12 +19,20 @@ export class MoviesService {
 
         const start = `${date_start.getFullYear()}-${date_start.getMonth() + 1}-${date_start.getDate()}`;
         const end = `${date_end.getFullYear()}-${date_end.getMonth() + 1}-${date_end.getDate()}`;
-        const url = `${this.urlMoviedb}/discover/movie?primary_release_date.gte=${start}&primary_release_date.lte=${end}&api_key=${this.apikey}&language=es`;
+
+        const URL_BILLBOARD = `/discover/movie?primary_release_date.gte=${start}&primary_release_date.lte=${end}`;
+        const url = `${this.urlMoviedb}${URL_BILLBOARD}&api_key=${this.apikey}&language=es`;
         return this.http.get(url).pipe(map(response => response));
     }
 
     getPopulars() {
         const url = `${ this.urlMoviedb }/discover/movie?sort_by=popularity.desc&api_key=${ this.apikey }&language=es`;
+        return this.http.get(url).pipe(map(response => response));
+    }
+
+    getKidsMovies() {
+        const URL_KIDS = '/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc';
+        const url = `${ this.urlMoviedb }${URL_KIDS}&api_key=${ this.apikey }&language=es`;
         return this.http.get(url).pipe(map(response => response));
     }
 
