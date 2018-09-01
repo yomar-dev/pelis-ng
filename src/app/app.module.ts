@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { SearchComponent } from './components/search/search.component';
+import { GalleryComponent } from './components/home/gallery.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SearchComponent } from './components/search/search.component';
     HomeComponent,
     MovieComponent,
     SearchComponent,
-    MovieImagePipe
+    MovieImagePipe,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
