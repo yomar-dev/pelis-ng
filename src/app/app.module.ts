@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { APP_ROUTING } from './app.routes';
 
+import { MovieImagePipe } from './pipes/movie-image.pipe';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -16,7 +18,8 @@ import { SearchComponent } from './components/search/search.component';
     NavbarComponent,
     HomeComponent,
     MovieComponent,
-    SearchComponent
+    SearchComponent,
+    MovieImagePipe
   ],
   imports: [
     BrowserModule,
