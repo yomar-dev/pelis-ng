@@ -10,6 +10,8 @@ export class MoviesService {
     private apikey = '5a26c3bafc6b1d17d4a99115d9eeba63';
     private urlMoviedb = 'https://api.themoviedb.org/3';
 
+    movies: any[] = [];
+
     constructor( private http: HttpClient ) { }
 
     getBillboard() {
@@ -38,6 +40,9 @@ export class MoviesService {
 
     searchMovie(name: string) {
         const url = `${ this.urlMoviedb }/search/movie?query=${ name }&sort_by=popularity.desc&api_key=${ this.apikey }&language=es`;
-        return this.http.get(url).pipe(map(response => response));
+        return this.http.get(url).pipe(map((response: any) => {
+            this.movies = response.results;
+            return response;
+        }));
     }
 }
