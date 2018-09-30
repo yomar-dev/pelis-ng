@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row animated fadeIn fast">
         <div class="col-md-12">
             <div class="card-columns">
                 <div class="card" *ngFor="let movie of _moviesService.movies">
@@ -22,7 +22,11 @@
                     <div class="card-body">
                         <h4 class="card-title">{{ movie.original_title }}</h4>
                         <p class="card-text">{{ movie.overview | slice:0:240 }}...</p>
-                        <button class="btn btn-outline-primary btn-block">View more</button>
+                        <button
+                            [routerLink]="['/movie', movie.id, 'search', movieName]"
+                            class="btn btn-outline-primary btn-block">
+                            View more
+                        </button>
                     </div>
                 </div>
             </div>
