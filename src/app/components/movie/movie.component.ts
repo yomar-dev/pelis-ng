@@ -9,10 +9,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MovieComponent implements OnInit {
   movie: any;
+  pageOrigin = '';
 
   constructor(public _movieService: MoviesService, public _activateRouter: ActivatedRoute) {
     this._activateRouter.params.subscribe(params => {
-      console.log(params);
+      this.pageOrigin = params['page'];
       this._movieService.getMovie(params['id']).subscribe(movie => {
         this.movie = movie;
       });
