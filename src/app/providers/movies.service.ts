@@ -45,4 +45,9 @@ export class MoviesService {
             return response;
         }));
     }
+
+    getMovie(id: string) {
+        const url = `${ this.urlMoviedb }/movie/${ id }?api_key=${ this.apikey }&language=es`;
+        return this.http.get(url).pipe(map(response => response));
+    }
 }
